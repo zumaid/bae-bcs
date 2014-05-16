@@ -1,0 +1,5 @@
+{
+    "main": "index.js",
+    "name": "bae-bcs",
+    "readme": "Node.js module for BAE BCS"
+}

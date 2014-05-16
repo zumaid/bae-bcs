@@ -1,0 +1,141 @@
+var BCS  = require('../index.js');
+
+var host = 'bcs.duapp.com';
+var ak = 'WTIXcFKoecBC8xCrvsKvEu3G';
+var sk = 'PLZYRpMUx4FEcNGvD4hOdyjzdstzDWKR';
+var client = new BCS(host, ak, sk);
+var bname = 'h1-bucket';
+
+var data = 'hello, BCS';
+
+/*
+client.putObj(bname, '/first', data, function(err){
+  if(!err){
+    console.log('put success');
+    client.getObj(bname, '/first', function(err, result){
+      if(!err){
+        console.log('get result: ', result);
+      }
+    });
+  }else{
+    console.log('error: ', err);
+  }
+});
+ */
+/*
+client.listBuckets(function(err, res){
+  if(!err){
+    console.log('buckets: ' + res);
+  }else {
+    console.log('err: ', err);
+  }
+});
+
+client.deleteObj(bname, '/sec', function(err){
+  if(err){
+    console.log('error: ', err);
+  }else {
+    console.log('delele object success');
+  }
+});
+*/
+/*
+client.putObj(bname, '/thd', data, function(err){
+  if(!err){
+    console.log('put success');
+    client.getObj(bname, '/thd', function(err, result){
+      if(!err){
+        console.log('get result: ', result);
+
+        client.deleteObj(bname, '/thd', function(err){
+          if(err){
+            console.log('error: ', err);
+          }else {
+            console.log('delele object success');
+            client.getObj(bname, '/thd', function(err){
+              if(err){
+                console.log('err: ', err);
+              }
+            })
+          }
+        });
+      }
+    });
+  }else{
+    console.log('error: ', err);
+  }
+});
+
+var option = {prefix: '/d'};
+client.listObj(bname, option, function(err, result){
+  if(err){
+    console.log('err: ', err);
+  }else {
+    console.log('result: ', result);
+  }
+});
+*/
+var bname1 = 'h2-bucket';
+var data1 = 'im in h2-bucket';
+
+/*
+client.putObj(bname1, '/h2-obj1', data1, function(err){
+  if(err){
+    console.log('putObj err: ', err);
+  }else{
+    client.copyObj(bname1, '/h2-obj1', bname, '/h1-obj1', function(err){
+      if(err){
+        console.log('copyObj err:', err);
+      }else{
+        client.listObj(bname, {}, function(err, result){
+          if(err){
+            console.log('listObj err: ', err);
+          }else{
+            console.log('all objs in h1-bucket: ', result );
+          }
+        })
+      }
+    });
+  }
+});
+
+client.headObj(bname1, '/h2-obj1', function(err, result){
+  if(err){
+    console.log(err);
+  }else{
+    console.log('head result: ', result);
+  }
+});
+
+*/
+
+
+var bname2 = 'h3-bucket';
+var bolist = [{bname: bname, oname: '/h1-obj1'}, {bname: bname1, oname: '/h2-obj1'}];
+/*
+client.putSuperfile(bname2, '/h3-superfile1', bolist, function(err){
+  if(err){
+    console.log(err);
+  }else{
+    console.log('putSuperfile success');
+
+    client.getObj(bname2, '/h3-superfile1', function(err, result){
+      if(err){
+        console.log('err: ', err);
+      }else{
+        console.log('get superfile result: ', result);
+      }
+    });
+
+    client.listObj(bname2)
+  }
+});
+ */
+
+client.upload(bname2, '/h2-file1', './myfile1', function(err){
+  if(err){
+    console.log('uploadfile faild');
+  }else{
+    console.log('success');
+  }
+});
