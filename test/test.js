@@ -1,8 +1,8 @@
 var BCS  = require('../index.js');
 var stream = require('stream');
 var host = 'bcs.duapp.com';
-var ak = 'WTIXcFKoecBC8xCrvsKvEu3G';
-var sk = 'PLZYRpMUx4FEcNGvD4hOdyjzdstzDWKR';
+var ak = 'your ak';
+var sk = 'your sk';
 var opt = {
   host:host,
   ak:ak,
